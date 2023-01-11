@@ -51,8 +51,8 @@
                 <artifactId>cargo-maven2-plugin</artifactId>
                 <version>1.8.3</version>
                 <configuration>
-                    <username>tomcat</username>
-                    <password>tomcat</password>
+                    <username>robot</username>
+                    <password>robot</password>
                     <container>
                         <containerId>tomcat9x</containerId>
                         <type>embedded</type>
