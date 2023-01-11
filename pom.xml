@@ -50,11 +50,14 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.1</version>
                 <configuration>
+                    <finalName>executable.war</finalName>
+                    <username>tomcat</username>
+                    <password>tomcat</password>
                     <!-- context root for Java web apps -->
                     <path>/</path>
                     <port>8080</port>
                     <!-- name of Tomcat executable jar file -->
-                    <finalName>JavaWeb.jar</finalName>
+
                 </configuration>
             </plugin>
         </plugins>
