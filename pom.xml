@@ -39,6 +39,7 @@
     </dependencies>
 
     <build>
+        <finalName>WSTest</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -46,18 +47,14 @@
                 <version>3.3.2</version>
             </plugin>
             <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>2.1</version>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven2-plugin</artifactId>
+                <version>1.7.6</version>
                 <configuration>
-                    <finalName>executable.war</finalName>
-                    <username>tomcat</username>
-                    <password>tomcat</password>
-                    <!-- context root for Java web apps -->
-                    <path>/</path>
-                    <port>8080</port>
-                    <!-- name of Tomcat executable jar file -->
-
+                    <container>
+                        <containerId>tomcat9x</containerId>
+                        <type>embedded</type>
+                    </container>
                 </configuration>
             </plugin>
         </plugins>
