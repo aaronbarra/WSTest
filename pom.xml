@@ -50,9 +50,10 @@
             <plugin>
                 <groupId>org.codehaus.cargo</groupId>
                 <artifactId>cargo-maven2-plugin</artifactId>
+                <version>1.0.2</version>
                 <configuration>
                     <container>
-                        <containerId>tomcat8x</containerId>
+                        <containerId>tomcat7x</containerId>
                         <type>remote</type>
                     </container>
 
@@ -61,6 +62,7 @@
                         <properties>
                             <cargo.hostname>localhost</cargo.hostname>
                             <cargo.servlet.port>8080</cargo.servlet.port>
+                            <cargo.tomcat.manager.url>http://localhost:8080/manager</cargo.tomcat.manager.url>
                             <cargo.remote.username>tomcat</cargo.remote.username>
                             <cargo.remote.password>tomcat</cargo.remote.password>
                         </properties>
@@ -82,4 +84,30 @@
             </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>env-prod</id>
+
+            <properties>
+                <deploy.env>prod</deploy.env>
+                <cargo.hostname>localhost</cargo.hostname>
+                <cargo.servlet.port>8080</cargo.servlet.port>
+                <cargo.tomcat.manager.url>http://localhost:8080/manager</cargo.tomcat.manager.url>
+                <cargo.remote.username>tomcat</cargo.remote.username>
+                <cargo.remote.password>tomcat</cargo.remote.password>
+            </properties>
+        </profile>
+        <profile>
+            <id>env-dev</id>
+
+            <properties>
+                <deploy.env>dev</deploy.env>
+                <cargo.hostname>localhost</cargo.hostname>
+                <cargo.servlet.port>8080</cargo.servlet.port>
+                <cargo.tomcat.manager.url>http://localhost:8080/manager</cargo.tomcat.manager.url>
+                <cargo.remote.username>tomcat</cargo.remote.username>
+                <cargo.remote.password>tomcat</cargo.remote.password>
+            </properties>
+        </profile>
+    </profiles>
 </project>
