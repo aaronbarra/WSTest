@@ -50,12 +50,34 @@
             <plugin>
                 <groupId>org.codehaus.cargo</groupId>
                 <artifactId>cargo-maven2-plugin</artifactId>
-                <version>1.7.6</version>
                 <configuration>
                     <container>
-                        <containerId>tomcat9x</containerId>
-                        <type>embedded</type>
+                        <containerId>tomcat8x</containerId>
+                        <type>remote</type>
                     </container>
+
+                    <configuration>
+                        <type>runtime</type>
+                        <properties>
+                            <cargo.hostname>localhost</cargo.hostname>
+                            <cargo.servlet.port>8080</cargo.servlet.port>
+                            <cargo.remote.username>tomcat</cargo.remote.username>
+                            <cargo.remote.password>tomcat</cargo.remote.password>
+                        </properties>
+                    </configuration>
+
+                    <deployer>
+                        <type>remote</type>
+                    </deployer>
+
+                    <deployables>
+                        <deployable>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>${project.artifactId}</artifactId>
+                            <type>${project.packaging}</type>
+                        </deployable>
+                    </deployables>
+
                 </configuration>
             </plugin>
         </plugins>
